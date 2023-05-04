@@ -39,7 +39,7 @@
 |
 |           -----------------------------------------------------------------------------------
 |              cpstars_instance = CPStars()
-|              magnitudes = cpstars_instance.get_magnitudes_for_star('710')
+|              magnitudes = cpstars_instance.get_magnitudes_for_star_by_renson('710')
 |           -----------------------------------------------------------------------------------
 """
 
