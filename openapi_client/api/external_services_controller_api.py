@@ -39,7 +39,7 @@ class ExternalServicesControllerApi(object):
             settings={
                 'response_type': ([str],),
                 'auth': [],
-                'endpoint_path': '/external/identifiers/{name}',
+                'endpoint_path': '/external/astrosearcher/identifiers/{name}',
                 'operation_id': 'get_identifiers',
                 'http_method': 'GET',
                 'servers': None,

@@ -18,6 +18,7 @@ from openapi_client.model.external_details import ExternalDetails
 from openapi_client.model.identifier import Identifier
 from openapi_client.model.light_curve_measurement import LightCurveMeasurement
 from openapi_client.model.magnitude import Magnitude
+from openapi_client.model.magnitude_attribute import MagnitudeAttribute
 from openapi_client.model.motion import Motion
 from openapi_client.model.radial_velocity import RadialVelocity
 from openapi_client.model.spectrum_measurement import SpectrumMeasurement

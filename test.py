@@ -11,12 +11,13 @@ from openapi_client.model.external_details import ExternalDetails
 from openapi_client.model.identifier import Identifier
 from openapi_client.model.light_curve_measurement import LightCurveMeasurement
 from openapi_client.model.magnitude import Magnitude
+from openapi_client.model.magnitude_attribute import MagnitudeAttribute
 from openapi_client.model.radial_velocity import RadialVelocity
 from openapi_client.model.spectrum_measurement import SpectrumMeasurement
 from openapi_client.model.star import Star
 
 # In case different server should be queried, host_address can be specified
-cpstars: CPStars = CPStars(host_address=None)
+cpstars: CPStars = CPStars(host_address="http://localhost:8081")
 
 
 def get_basic_info_for_stars_test():
@@ -52,6 +53,15 @@ def get_light_curve_for_star_by_renson_test():
     light_curve_measurements: list[LightCurveMeasurement] = cpstars.get_light_curve_for_star_by_renson(renson_id)
 
     assert len(light_curve_measurements) == expected_number_of_measurements
+
+
+def get_magnitudes_attributes_for_star_test():
+    cp_stars_id: int = 64
+    expected_number_of_attributes = 1
+
+    stellar_magnitudes_attributes: list[MagnitudeAttribute] = cpstars.get_magnitudes_attributes_for_star(cp_stars_id)
+
+    assert len(stellar_magnitudes_attributes) == expected_number_of_attributes
 
 
 def get_magnitudes_for_star_test():
@@ -171,6 +181,10 @@ if __name__ == '__main__':
 
     print(str.format("   {:<40} ", "get_light_curve_for_star_by_renson"), end="")
     get_light_curve_for_star_by_renson_test()
+    print("[ OK ]")
+
+    print(str.format("   {:<40} ", "get_magnitudes_attributes_for_star"), end="")
+    get_magnitudes_attributes_for_star_test()
     print("[ OK ]")
 
     print(str.format("   {:<40} ", "get_magnitudes_for_star"), end="")

@@ -75,6 +75,7 @@ from openapi_client.model.external_details import ExternalDetails
 from openapi_client.model.identifier import Identifier
 from openapi_client.model.light_curve_measurement import LightCurveMeasurement
 from openapi_client.model.magnitude import Magnitude
+from openapi_client.model.magnitude_attribute import MagnitudeAttribute
 from openapi_client.model.motion import Motion
 from openapi_client.model.radial_velocity import RadialVelocity
 from openapi_client.model.spectrum_measurement import SpectrumMeasurement
@@ -199,6 +200,27 @@ class CPStars:
         :return: star information
         """
         return self.stars_controller.get_star_by_renson_id(renson_id)
+
+    def get_magnitudes_attributes_for_star(self, cp_stars_id: int) -> list[MagnitudeAttribute]:
+        """
+        Obtain list of stellar magnitudes attributes of the given star
+        specified by CP-Stars database identifier
+
+        :param cp_stars_id: CP-Stars database identifier
+        :return: list of stellar magnitudes attributes
+        """
+        return self.stars_controller.get_star_magnitude_attributes(cp_stars_id)
+
+    def get_magnitudes_attributes_for_star_by_renson(self, renson_id: str) -> list[MagnitudeAttribute]:
+        """
+        Obtain list of stellar magnitudes attributes of the given star
+        specified by Renson identifier
+
+        :param renson_id: Renson identifier
+        :return: list of stellar magnitudes attributes
+        """
+        star: Star = self.stars_controller.get_star_by_renson_id(renson_id)
+        return self.stars_controller.get_star_magnitude_attributes(star.id)
 
     def get_magnitudes_for_star(self, cp_stars_id: int) -> [Magnitude]:
         """
