@@ -16,7 +16,7 @@ from openapi_client.model.spectrum_measurement import SpectrumMeasurement
 from openapi_client.model.star import Star
 
 # In case different server should be queried, host_address can be specified
-cpstars: CPStars = CPStars(host_address="http://localhost:8081")
+cpstars: CPStars = CPStars(host_address=None)
 
 
 def get_basic_info_for_stars_test():
