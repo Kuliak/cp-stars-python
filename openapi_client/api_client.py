@@ -193,7 +193,6 @@ class ApiClient(object):
             # use server/host defined in path or operation instead
             url = _host + resource_path
 
-        print(url)
         try:
             # perform request and return response
             response_data = self.request(

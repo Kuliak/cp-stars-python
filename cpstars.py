@@ -45,6 +45,7 @@
 
 from openapi_client import ApiClient, Configuration
 from openapi_client.api.export_controller_api import ExportControllerApi
+from openapi_client.api.external_services_controller_api import ExternalServicesControllerApi
 from openapi_client.api.stars_controller_api import StarsControllerApi
 from openapi_client.model.star import Star
 from openapi_client.model.star_basic_info import StarBasicInfo
@@ -69,6 +70,7 @@ class CPStars:
         )
         self.stars_controller = StarsControllerApi(self.api_client)
         self.export_controller = ExportControllerApi(self.api_client)
+        self.external_services_controller = ExternalServicesControllerApi(self.api_client)
 
     def get_basic_info_for_stars(self) -> [StarBasicInfo]:
         """
@@ -84,7 +86,52 @@ class CPStars:
         """
         return self.stars_controller.get_basic_info_stars_list()
 
-    def get_star_attributes(self, renson_id: int):
+    def get_identifiers_for_star(self, renson_id: int):
+        """
+        Obtain identifiers that are stored in the database for the given star
+        specified by CP-Stars database identifier.
+
+        :param renson_id: Renson identifier
+        :return: list of identifiers of the given star
+        """
+        return self.stars_controller.get_star_identifiers(renson_id)
+
+    def get_identifiers_for_star_by_renson(self, renson_id: str):
+        """
+        Obtain identifiers that are stored in the database for the given star
+        specified by Renson identifier.
+
+        :param renson_id: Renson identifier
+        :return: list of identifiers of the given star
+        """
+        star: Star = self.stars_controller.get_star_by_renson_id(renson_id)
+        return self.stars_controller.get_star_identifiers(star.id)
+
+    def get_simbad_external_details(self, star_name: str):
+        """
+        Obtain specific subset of information from SIMBAD database.
+        Stellar name has to be specified including data source identification, e.g. 'R 710'.
+
+        :param star_name: star name that will be used for querying external services
+        :return: SIMBAD details (specified subset)
+        """
+        return self.external_services_controller.get_simbad_external_details(star_name)
+
+    def get_star_attributes(self, cp_stars_id: int):
+        """
+        Obtain list of attributes belonging to the specified star.
+        CP-Stars database identifier is used to find corresponding attributes.
+
+        Each attribute has also corresponding datasource specified it was
+        obtained from.
+
+        :param cp_stars_id: CP-Stars database identifier
+        :return: list of attributes of given star
+        """
+        return self.stars_controller.get_star_datasource_attributes(cp_stars_id)
+
+
+    def get_star_attributes(self, renson_id: str):
         """
         Obtain list of attributes belonging to the specified star.
         Renson identifier is used to find corresponding attributes.
@@ -92,9 +139,11 @@ class CPStars:
         Each attribute has also corresponding datasource specified it was
         obtained from.
 
+        :param renson_id: Renson identifier
         :return: list of attributes of given star
         """
-        return self.stars_controller.get_star_datasource_attributes(renson_id)
+        star: Star = self.stars_controller.get_star_by_renson_id(renson_id)
+        return self.stars_controller.get_star_datasource_attributes(star.id)
 
     def get_star(self, cp_stars_id: int):
         """
@@ -187,23 +236,42 @@ class CPStars:
         star: Star = self.stars_controller.get_star_by_renson_id(renson_id)
         return self.stars_controller.get_star_radial_velocities(star.id)
 
-    def get_identifiers_for_star(self, renson_id: int):
+    def get_light_curve_for_star(self, cp_stars_id: int):
         """
-        Obtain identifiers that are stored in the database for the given star
+        Obtain stellar light curve measurements for the given star
+        specified by CP-Stars database identifier.
+
+        :param cp_stars_id: CP-Stars database identifier
+        :return: stellar light curve measurements
+        """
+        return self.stars_controller.get_star_light_curve_measurements(cp_stars_id)
+
+    def get_light_curve_for_star_by_renson(self, cp_stars_id: int):
+        """
+        Obtain stellar light curve measurements for the given star
+        specified by CP-Stars database identifier.
+
+        :param cp_stars_id: CP-Stars database identifier
+        :return: stellar light curve measurements
+        """
+        return self.stars_controller.get_star_light_curve_measurements(cp_stars_id)
+
+    def get_spectrum_for_star(self, renson_id: str):
+        """
+        Obtain stellar spectrum measurements for the given star
         specified by CP-Stars database identifier.
 
         :param renson_id: Renson identifier
-        :return: list of identifiers of the given star
+        :return: stellar spectrum measurements
         """
-        return self.stars_controller.get_star_identifiers(renson_id)
+        return self.stars_controller.get_star_spectra_measurements_by_renson(renson_id)
 
-    def get_identifiers_for_star_by_renson(self, renson_id: str):
+    def get_spectrum_for_star_by_renson(self, renson_id: str):
         """
-        Obtain identifiers that are stored in the database for the given star
+        Obtain stellar spectrum measurements for the given star
         specified by Renson identifier.
 
         :param renson_id: Renson identifier
-        :return: list of identifiers of the given star
+        :return: stellar spectrum measurements
         """
-        star: Star = self.stars_controller.get_star_by_renson_id(renson_id)
-        return self.stars_controller.get_star_identifiers(star.id)
+        return self.stars_controller.get_star_spectra_measurements_by_renson(renson_id)

@@ -83,7 +83,6 @@ class LightCurveMeasurement(ModelNormal):
         return {
             'time': (float,),  # noqa: E501
             'value': (float,),  # noqa: E501
-            'error': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -94,7 +93,6 @@ class LightCurveMeasurement(ModelNormal):
     attribute_map = {
         'time': 'time',  # noqa: E501
         'value': 'value',  # noqa: E501
-        'error': 'error',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,7 +138,6 @@ class LightCurveMeasurement(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             time (float): [optional]  # noqa: E501
             value (float): [optional]  # noqa: E501
-            error (float): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +225,6 @@ class LightCurveMeasurement(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             time (float): [optional]  # noqa: E501
             value (float): [optional]  # noqa: E501
-            error (float): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

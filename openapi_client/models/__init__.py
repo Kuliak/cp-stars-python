@@ -20,6 +20,7 @@ from openapi_client.model.light_curve_measurement import LightCurveMeasurement
 from openapi_client.model.magnitude import Magnitude
 from openapi_client.model.motion import Motion
 from openapi_client.model.radial_velocity import RadialVelocity
+from openapi_client.model.spectrum_measurement import SpectrumMeasurement
 from openapi_client.model.star import Star
 from openapi_client.model.star_basic_info import StarBasicInfo
 from openapi_client.model.star_datasource_attribute import StarDatasourceAttribute

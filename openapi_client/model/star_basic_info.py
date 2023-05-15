@@ -82,7 +82,7 @@ class StarBasicInfo(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'id_2009_a_and_a_498_961_r': (str,),  # noqa: E501
+            'renson': (str,),  # noqa: E501
             'considered_category_affiliation_probability_flag': (str,),  # noqa: E501
             'binary_system_component': (str,),  # noqa: E501
             'icrs_right_ascension': (float,),  # noqa: E501
@@ -98,7 +98,7 @@ class StarBasicInfo(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'id_2009_a_and_a_498_961_r': 'id_2009_A_AND_A_498_961_R',  # noqa: E501
+        'renson': 'renson',  # noqa: E501
         'considered_category_affiliation_probability_flag': 'consideredCategoryAffiliationProbabilityFlag',  # noqa: E501
         'binary_system_component': 'binarySystemComponent',  # noqa: E501
         'icrs_right_ascension': 'icrsRightAscension',  # noqa: E501
@@ -151,7 +151,7 @@ class StarBasicInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_2009_a_and_a_498_961_r (str): [optional]  # noqa: E501
+            renson (str): [optional]  # noqa: E501
             considered_category_affiliation_probability_flag (str): [optional]  # noqa: E501
             binary_system_component (str): [optional]  # noqa: E501
             icrs_right_ascension (float): [optional]  # noqa: E501
@@ -247,7 +247,7 @@ class StarBasicInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id_2009_a_and_a_498_961_r (str): [optional]  # noqa: E501
+            renson (str): [optional]  # noqa: E501
             considered_category_affiliation_probability_flag (str): [optional]  # noqa: E501
             binary_system_component (str): [optional]  # noqa: E501
             icrs_right_ascension (float): [optional]  # noqa: E501
