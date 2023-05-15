@@ -94,9 +94,9 @@ class Identifier(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
+            'star': (Star,),  # noqa: E501
             'datasource': (DataSource,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'star': (Star,),  # noqa: E501
             'defined': (bool,),  # noqa: E501
         }
 
@@ -107,9 +107,9 @@ class Identifier(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'star': 'star',  # noqa: E501
         'datasource': 'datasource',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'star': 'star',  # noqa: E501
         'defined': 'defined',  # noqa: E501
     }
 
@@ -120,11 +120,12 @@ class Identifier(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, datasource, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, star, datasource, name, *args, **kwargs):  # noqa: E501
         """Identifier - a model defined in OpenAPI
 
         Args:
             id (int):
+            star (Star):
             datasource (DataSource):
             name (str):
 
@@ -159,7 +160,6 @@ class Identifier(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            star (Star): [optional]  # noqa: E501
             defined (bool): [optional]  # noqa: E501
         """
 
@@ -193,6 +193,7 @@ class Identifier(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.star = star
         self.datasource = datasource
         self.name = name
         for var_name, var_value in kwargs.items():
@@ -215,11 +216,12 @@ class Identifier(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, datasource, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, star, datasource, name, *args, **kwargs):  # noqa: E501
         """Identifier - a model defined in OpenAPI
 
         Args:
             id (int):
+            star (Star):
             datasource (DataSource):
             name (str):
 
@@ -254,7 +256,6 @@ class Identifier(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            star (Star): [optional]  # noqa: E501
             defined (bool): [optional]  # noqa: E501
         """
 
@@ -286,6 +287,7 @@ class Identifier(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.star = star
         self.datasource = datasource
         self.name = name
         for var_name, var_value in kwargs.items():

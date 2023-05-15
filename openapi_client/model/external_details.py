@@ -87,12 +87,12 @@ class ExternalDetails(ModelNormal):
         """
         lazy_import()
         return {
-            'effective_temperature': (float,),  # noqa: E501
-            'effective_temperature_unit': (str,),  # noqa: E501
-            'redshift': (float,),  # noqa: E501
-            'vizier_tables': ([VizierTable],),  # noqa: E501
-            'effective_temperature_values_regex': (str,),  # noqa: E501
+            'effective_temperature': (float, none_type,),  # noqa: E501
+            'effective_temperature_unit': (str, none_type,),  # noqa: E501
+            'redshift': (float, none_type,),  # noqa: E501
+            'vizier_tables': ([VizierTable], none_type,),  # noqa: E501
             'effective_temperature_values': (str,),  # noqa: E501
+            'effective_temperature_values_regex': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -105,8 +105,8 @@ class ExternalDetails(ModelNormal):
         'effective_temperature_unit': 'effectiveTemperatureUnit',  # noqa: E501
         'redshift': 'redshift',  # noqa: E501
         'vizier_tables': 'vizierTables',  # noqa: E501
-        'effective_temperature_values_regex': 'effective_TEMPERATURE_VALUES_REGEX',  # noqa: E501
         'effective_temperature_values': 'effectiveTemperatureValues',  # noqa: E501
+        'effective_temperature_values_regex': 'effective_TEMPERATURE_VALUES_REGEX',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,12 +150,12 @@ class ExternalDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            effective_temperature (float): [optional]  # noqa: E501
-            effective_temperature_unit (str): [optional]  # noqa: E501
-            redshift (float): [optional]  # noqa: E501
-            vizier_tables ([VizierTable]): [optional]  # noqa: E501
-            effective_temperature_values_regex (str): [optional]  # noqa: E501
+            effective_temperature (float, none_type): [optional]  # noqa: E501
+            effective_temperature_unit (str, none_type): [optional]  # noqa: E501
+            redshift (float, none_type): [optional]  # noqa: E501
+            vizier_tables ([VizierTable], none_type): [optional]  # noqa: E501
             effective_temperature_values (str): [optional]  # noqa: E501
+            effective_temperature_values_regex (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,12 +241,12 @@ class ExternalDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            effective_temperature (float): [optional]  # noqa: E501
-            effective_temperature_unit (str): [optional]  # noqa: E501
-            redshift (float): [optional]  # noqa: E501
-            vizier_tables ([VizierTable]): [optional]  # noqa: E501
-            effective_temperature_values_regex (str): [optional]  # noqa: E501
+            effective_temperature (float, none_type): [optional]  # noqa: E501
+            effective_temperature_unit (str, none_type): [optional]  # noqa: E501
+            redshift (float, none_type): [optional]  # noqa: E501
+            vizier_tables ([VizierTable], none_type): [optional]  # noqa: E501
             effective_temperature_values (str): [optional]  # noqa: E501
+            effective_temperature_values_regex (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

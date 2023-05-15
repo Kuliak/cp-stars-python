@@ -90,14 +90,14 @@ class Motion(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'datasource': (DataSource,),  # noqa: E501
             'star': (Star,),  # noqa: E501
-            'proper_motion_ra': (float,),  # noqa: E501
-            'proper_motion_ra_error': (float,),  # noqa: E501
-            'proper_motion_dec': (float,),  # noqa: E501
-            'proper_motion_dec_error': (float,),  # noqa: E501
-            'parallax': (float,),  # noqa: E501
-            'parallax_error': (float,),  # noqa: E501
+            'datasource': (DataSource,),  # noqa: E501
+            'proper_motion_ra': (float, none_type,),  # noqa: E501
+            'proper_motion_ra_error': (float, none_type,),  # noqa: E501
+            'proper_motion_dec': (float, none_type,),  # noqa: E501
+            'proper_motion_dec_error': (float, none_type,),  # noqa: E501
+            'parallax': (float, none_type,),  # noqa: E501
+            'parallax_error': (float, none_type,),  # noqa: E501
             'defined': (bool,),  # noqa: E501
         }
 
@@ -108,8 +108,8 @@ class Motion(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'datasource': 'datasource',  # noqa: E501
         'star': 'star',  # noqa: E501
+        'datasource': 'datasource',  # noqa: E501
         'proper_motion_ra': 'properMotionRa',  # noqa: E501
         'proper_motion_ra_error': 'properMotionRaError',  # noqa: E501
         'proper_motion_dec': 'properMotionDec',  # noqa: E501
@@ -126,11 +126,12 @@ class Motion(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, datasource, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, star, datasource, *args, **kwargs):  # noqa: E501
         """Motion - a model defined in OpenAPI
 
         Args:
             id (int):
+            star (Star):
             datasource (DataSource):
 
         Keyword Args:
@@ -164,13 +165,12 @@ class Motion(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            star (Star): [optional]  # noqa: E501
-            proper_motion_ra (float): [optional]  # noqa: E501
-            proper_motion_ra_error (float): [optional]  # noqa: E501
-            proper_motion_dec (float): [optional]  # noqa: E501
-            proper_motion_dec_error (float): [optional]  # noqa: E501
-            parallax (float): [optional]  # noqa: E501
-            parallax_error (float): [optional]  # noqa: E501
+            proper_motion_ra (float, none_type): [optional]  # noqa: E501
+            proper_motion_ra_error (float, none_type): [optional]  # noqa: E501
+            proper_motion_dec (float, none_type): [optional]  # noqa: E501
+            proper_motion_dec_error (float, none_type): [optional]  # noqa: E501
+            parallax (float, none_type): [optional]  # noqa: E501
+            parallax_error (float, none_type): [optional]  # noqa: E501
             defined (bool): [optional]  # noqa: E501
         """
 
@@ -204,6 +204,7 @@ class Motion(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.star = star
         self.datasource = datasource
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -225,11 +226,12 @@ class Motion(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, datasource, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, star, datasource, *args, **kwargs):  # noqa: E501
         """Motion - a model defined in OpenAPI
 
         Args:
             id (int):
+            star (Star):
             datasource (DataSource):
 
         Keyword Args:
@@ -263,13 +265,12 @@ class Motion(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            star (Star): [optional]  # noqa: E501
-            proper_motion_ra (float): [optional]  # noqa: E501
-            proper_motion_ra_error (float): [optional]  # noqa: E501
-            proper_motion_dec (float): [optional]  # noqa: E501
-            proper_motion_dec_error (float): [optional]  # noqa: E501
-            parallax (float): [optional]  # noqa: E501
-            parallax_error (float): [optional]  # noqa: E501
+            proper_motion_ra (float, none_type): [optional]  # noqa: E501
+            proper_motion_ra_error (float, none_type): [optional]  # noqa: E501
+            proper_motion_dec (float, none_type): [optional]  # noqa: E501
+            proper_motion_dec_error (float, none_type): [optional]  # noqa: E501
+            parallax (float, none_type): [optional]  # noqa: E501
+            parallax_error (float, none_type): [optional]  # noqa: E501
             defined (bool): [optional]  # noqa: E501
         """
 
@@ -301,6 +302,7 @@ class Motion(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.id = id
+        self.star = star
         self.datasource = datasource
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

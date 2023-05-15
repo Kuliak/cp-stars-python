@@ -124,17 +124,17 @@ class ExtendedStar(ModelNormal):
         lazy_import()
         return {
             'id': (int,),  # noqa: E501
-            'considered_category_affiliation_probability_flag': (str,),  # noqa: E501
-            'renson': (str,),  # noqa: E501
-            'binary_system_component': (str,),  # noqa: E501
+            'considered_category_affiliation_probability_flag': (str, none_type,),  # noqa: E501
+            'renson': (str, none_type,),  # noqa: E501
+            'binary_system_component': (str, none_type,),  # noqa: E501
             'icrs_right_ascension': (float,),  # noqa: E501
             'icrs_right_ascension_error': (float,),  # noqa: E501
             'icrs_declination': (float,),  # noqa: E501
             'icrs_declination_error': (float,),  # noqa: E501
             'galactic_longitude': (float,),  # noqa: E501
             'galactic_latitude': (float,),  # noqa: E501
-            'alpha': (str,),  # noqa: E501
-            'delta': (str,),  # noqa: E501
+            'alpha': (str, none_type,),  # noqa: E501
+            'delta': (str, none_type,),  # noqa: E501
             'external_details': (ExternalDetails,),  # noqa: E501
         }
 
@@ -203,17 +203,17 @@ class ExtendedStar(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            considered_category_affiliation_probability_flag (str): [optional]  # noqa: E501
-            renson (str): [optional]  # noqa: E501
-            binary_system_component (str): [optional]  # noqa: E501
+            considered_category_affiliation_probability_flag (str, none_type): [optional]  # noqa: E501
+            renson (str, none_type): [optional]  # noqa: E501
+            binary_system_component (str, none_type): [optional]  # noqa: E501
             icrs_right_ascension (float): [optional]  # noqa: E501
             icrs_right_ascension_error (float): [optional]  # noqa: E501
             icrs_declination (float): [optional]  # noqa: E501
             icrs_declination_error (float): [optional]  # noqa: E501
             galactic_longitude (float): [optional]  # noqa: E501
             galactic_latitude (float): [optional]  # noqa: E501
-            alpha (str): [optional]  # noqa: E501
-            delta (str): [optional]  # noqa: E501
+            alpha (str, none_type): [optional]  # noqa: E501
+            delta (str, none_type): [optional]  # noqa: E501
             external_details (ExternalDetails): [optional]  # noqa: E501
         """
 
@@ -304,17 +304,17 @@ class ExtendedStar(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            considered_category_affiliation_probability_flag (str): [optional]  # noqa: E501
-            renson (str): [optional]  # noqa: E501
-            binary_system_component (str): [optional]  # noqa: E501
+            considered_category_affiliation_probability_flag (str, none_type): [optional]  # noqa: E501
+            renson (str, none_type): [optional]  # noqa: E501
+            binary_system_component (str, none_type): [optional]  # noqa: E501
             icrs_right_ascension (float): [optional]  # noqa: E501
             icrs_right_ascension_error (float): [optional]  # noqa: E501
             icrs_declination (float): [optional]  # noqa: E501
             icrs_declination_error (float): [optional]  # noqa: E501
             galactic_longitude (float): [optional]  # noqa: E501
             galactic_latitude (float): [optional]  # noqa: E501
-            alpha (str): [optional]  # noqa: E501
-            delta (str): [optional]  # noqa: E501
+            alpha (str, none_type): [optional]  # noqa: E501
+            delta (str, none_type): [optional]  # noqa: E501
             external_details (ExternalDetails): [optional]  # noqa: E501
         """
 

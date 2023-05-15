@@ -98,9 +98,9 @@ class Magnitude(ModelNormal):
             'name': (str,),  # noqa: E501
             'value': (float,),  # noqa: E501
             'star': (Star,),  # noqa: E501
-            'error': (float,),  # noqa: E501
-            'quality': (str,),  # noqa: E501
-            'uncertainty_flag': (str,),  # noqa: E501
+            'error': (float, none_type,),  # noqa: E501
+            'quality': (str, none_type,),  # noqa: E501
+            'uncertainty_flag': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -167,9 +167,9 @@ class Magnitude(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             star (Star): [optional]  # noqa: E501
-            error (float): [optional]  # noqa: E501
-            quality (str): [optional]  # noqa: E501
-            uncertainty_flag (str): [optional]  # noqa: E501
+            error (float, none_type): [optional]  # noqa: E501
+            quality (str, none_type): [optional]  # noqa: E501
+            uncertainty_flag (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,9 +266,9 @@ class Magnitude(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             star (Star): [optional]  # noqa: E501
-            error (float): [optional]  # noqa: E501
-            quality (str): [optional]  # noqa: E501
-            uncertainty_flag (str): [optional]  # noqa: E501
+            error (float, none_type): [optional]  # noqa: E501
+            quality (str, none_type): [optional]  # noqa: E501
+            uncertainty_flag (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
