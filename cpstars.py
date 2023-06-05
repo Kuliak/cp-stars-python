@@ -4,11 +4,6 @@
 |    Chemically peculiar (CP) stars are stored in the database based on the catalog of Ap, HgMn and Am stars
 |    (Bibcode: 2009A&A...498..961R).
 |
-|    IMPORTANT:
-|        Only information from the database can be obtained or exported.
-|        No external data are fetched (obtainable), e.g. external identifiers (those that are not included
-|        in the CP-Stars database) or Vizier metadata.
-|
 |    Several types of data can be obtained:
 |        -> General (CP-Stars ID, Renson ID, binary system component flag, ICRS coordinates, galactic coordinates
             alpha/delta coordinates, considered category affiliation probability)
@@ -17,6 +12,7 @@
 |        -> Radial velocities (value, error)
 |        -> Identifiers (stored in the CP-Stars database)
 |        -> Attributes (e.g. Spectral type)
+|        -> Vizier metadata, external details
 |
 |    AUTHOR: Ľuboslav Halama
 |
